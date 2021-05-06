@@ -16,4 +16,6 @@ from django.http import HttpRequest, HttpResponse
 
 
 def index(request: HttpRequest) -> HttpResponse:
-    return HttpResponse("Hello, world. You're at the polls index.")
+    data = Stock.objects.all()
+    params = { 'data': data }
+    return render(request, 'polls/index.html', params)
