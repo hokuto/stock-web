@@ -10,13 +10,42 @@
     <h1>Stock</h1>
     <table border="1">
         <tr>
-            <th>id</th>
-            <th>name</th>
+            <th>証券コード</th>
+            <th>会社名</th>
+            <th>市場</th>
+            <th>上場日</th>
+            <th>上場承認日</th>
+            <th>公募価格</th>
+            <th>仮条件</th>
+            <th>公募</th>
+            <th>売出</th>
+            <th>概要</th>
+            <th>確認書</th>
+            <th>Iの部</th>
+            <th>CG報告書</th>
+            <th>決算短信</th>
+
         </tr>
-        {% for member in data %}
+        {% for stock in data %}
         <tr>
-            <td>{{ member.id }}</td>
-            <td>{{ member.name }}</td>
+            <td>{{ stock.id }}</td>
+            <td>{{ stock.name }}</td>
+            <td>{{ stock.market }}</td>
+            <td>{{ stock.ipo_date }}</td>
+            <td>{{ stock.ipo_accepted_date }}</td>
+            <td>{{ stock.offering_price }}</td>
+            <td>
+              {{ stock.provisional_price_min }}
+              〜
+              {{ stock.provisional_price_max }}
+            </td>
+            <td>{{ stock.offering_volume }}</td>
+            <td>{{ stock.sale_volume }}</td>
+            <td><a href="{{ stock.file_1_url }}">link</a></td>
+            <td><a href="{{ stock.file_2_url }}">link</a></td>
+            <td><a href="{{ stock.file_3_url }}">link</a></td>
+            <td><a href="{{ stock.file_4_url }}">link</a></td>
+            <td><a href="{{ stock.file_5_url }}">link</a></td>
         </tr>
         {% endfor %}
     </table>

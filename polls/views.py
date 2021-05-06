@@ -13,9 +13,11 @@
 # limitations under the License.
 
 from django.http import HttpRequest, HttpResponse
-
+from django.shortcuts import render
+from .models import Stock
 
 def index(request: HttpRequest) -> HttpResponse:
-    data = Stock.objects.all()
+    # data = Stock.objects.exclude(offering_price=None).all()
+    data = Stock.objects.exclude(offering_volume=None).order_by("-ipo_date")
     params = { 'data': data }
     return render(request, 'polls/index.html', params)

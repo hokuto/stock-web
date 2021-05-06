@@ -26,4 +26,20 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
 
 class Stock(models.Model):
+    class Meta:
+        db_table = 'stocks'
+
     name = models.CharField(max_length=255)
+    market = models.CharField(max_length=255)
+    ipo_date = models.DateField()
+    ipo_accepted_date = models.DateField()
+    offering_price = models.IntegerField()
+    provisional_price_min = models.IntegerField()
+    provisional_price_max = models.IntegerField()
+    offering_volume = models.IntegerField()
+    sale_volume = models.IntegerField()
+    file_1_url = models.CharField(max_length=255)
+    file_2_url = models.CharField(max_length=255)
+    file_3_url = models.CharField(max_length=255)
+    file_4_url = models.CharField(max_length=255)
+    file_5_url = models.CharField(max_length=255)
