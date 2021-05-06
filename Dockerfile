@@ -15,7 +15,8 @@
 # Use an official lightweight Python image.
 # https://hub.docker.com/_/python
 FROM python:3.9-slim
-
+RUN apt-get update && \
+    apt-get -y install gcc libmariadb-dev
 ENV APP_HOME /app
 WORKDIR $APP_HOME
 
